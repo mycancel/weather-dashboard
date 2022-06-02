@@ -7,21 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js">
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <h1>Weather Dashboard</h1>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
 
     <aside>
         <form>
             <label for="place">Search for a City:</label>
-            <input type="text" id="place" placeholder="City">
+            <input type="text" id="place" placeholder="Chicago">
             <button type="submit" id="submit">Search</button>
         </form>
 
         <div id="history"></div>
-
     </aside>
 
     <section>

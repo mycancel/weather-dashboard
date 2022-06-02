@@ -35,7 +35,6 @@ function getWeather(city, lat, lon) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       cityTitle.textContent = '';
       cityTitle.textContent = city + ' — ' + moment().format("M/DD/YYYY");
 
