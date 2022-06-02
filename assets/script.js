@@ -31,7 +31,24 @@ function getLocation(city) {
 }
 
 function getWeather(lat, lon) {
-    console.log('hello');
+    fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely,daily,hourly,alerts&units=imperial&appid=062ac5aed23ac309d8aa8d7807a42e70')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    //   Remember to display an icon for the weather data.current.weather[0].icon
+      var weatherData = {
+        temp: data.current.temp,
+        wind: data.current.wind_speed,
+        humidity: data.current.humidity,
+        uvi: data.current.uvi,
+      };
+      console.log(weatherData);
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 
 submitBtn.addEventListener('click', function (event) {
