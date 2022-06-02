@@ -1,6 +1,8 @@
 var inputEl = document.querySelector('#place');
 var submitBtn = document.querySelector('#submit');
-var historyEl = document.querySelector('.history');
+var historyEl = document.querySelector('#history');
+var weatherEl = document.querySelector('#weather');
+var cityTitle = document.querySelector('#city');
 
 var srcHistory = JSON.parse(localStorage.getItem('srcHistory')) || [];
 
@@ -13,6 +15,7 @@ function init() {
 }
 
 function getLocation(city) {
+    cityTitle.textContent = city;
     // Note to self: how to find weather in city with spaces in it (Washington DC, Las Vegas, etc)
     var newCity = city.replace(/ /g, "");
     fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + newCity + '&limit=1&appid=062ac5aed23ac309d8aa8d7807a42e70')
@@ -20,11 +23,15 @@ function getLocation(city) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+        getWeather(data[0].lat, data[0].lon);
     })
     .catch(function (err) {
       console.log(err);
     }); 
+}
+
+function getWeather(lat, lon) {
+    console.log('hello');
 }
 
 submitBtn.addEventListener('click', function (event) {
@@ -47,7 +54,7 @@ historyEl.addEventListener('click', function (event) {
     event.preventDefault();
     var historyBtn = event.target;
     if (historyBtn.matches('button')) {
-        console.log(historyBtn.textContent);
+        getLocation(historyBtn.textContent);
     }
 })
 
