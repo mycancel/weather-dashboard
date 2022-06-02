@@ -35,35 +35,43 @@ function getWeather(city, lat, lon) {
     })
     .then(function (data) {
       console.log(data);
-
-      var weatherIcon = data.current.weather[0].icon;
-      var weatherData = [
-        'Temp: ' + data.current.temp + "°F",
-        'Wind: ' + data.current.wind_speed + ' mph',
-        'Humidity: ' + data.current.humidity + '%'
-      ];
-      var uvIndex = data.current.uvi;
-
+      cityTitle.textContent = '';
       cityTitle.textContent = city;
-      var currentIcon = document.createElement('img');
-      currentIcon.setAttribute('src', 'http://openweathermap.org/img/w/' + weatherIcon + '.png');
-      weatherEl.appendChild(currentIcon);
-
-      for (var item of weatherData ) {
-        var weatherItem = document.createElement('p');
-        weatherItem.textContent = item;
-        weatherEl.appendChild(weatherItem);
-      }
-      var uvLabel = document.createElement('p');
-      var uvEl = document.createElement('button');
-      uvLabel.textContent = 'UV index: ';
-      uvEl.textContent = uvIndex;
-      weatherEl.append(uvLabel, uvEl);
+      currentWeather(data);
     })
     .catch(function (err) {
       console.log(err);
     });
 }
+
+function currentWeather(data) {
+  weatherEl.innerHTML = '';
+
+  var weatherIcon = data.current.weather[0].icon;
+  var currentIcon = document.createElement('img');
+  currentIcon.setAttribute('src', 'http://openweathermap.org/img/w/' + weatherIcon + '.png');
+  weatherEl.appendChild(currentIcon);
+
+  var weatherData = [
+    'Temp: ' + data.current.temp + '°F',
+    'Wind: ' + data.current.wind_speed + ' mph',
+    'Humidity: ' + data.current.humidity + '%'
+  ];
+  var uvIndex = data.current.uvi;
+
+  for (var item of weatherData) {
+    var weatherItem = document.createElement('p');
+    weatherItem.textContent = item;
+    weatherEl.appendChild(weatherItem);
+  }
+
+  var uvLabel = document.createElement('p');
+  var uvEl = document.createElement('button');
+  uvLabel.textContent = 'UV index: ';
+  uvEl.textContent = uvIndex;
+  weatherEl.append(uvLabel, uvEl);
+}
+
 
 submitBtn.addEventListener('click', function (event) {
   event.preventDefault();
