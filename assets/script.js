@@ -5,6 +5,8 @@ var cityTitle = document.querySelector('#city');
 var weatherEl = document.querySelector('#weather');
 var forecastEl = document.querySelector('#forecast');
 
+console.log(moment().format("MM-DD-YYYY"));
+
 var srcHistory = JSON.parse(localStorage.getItem('srcHistory')) || [];
 
 function init() {
@@ -37,7 +39,8 @@ function getWeather(city, lat, lon) {
     .then(function (data) {
       console.log(data);
       cityTitle.textContent = '';
-      cityTitle.textContent = city;
+      cityTitle.textContent = city + ' — ' + moment().format("M/DD/YYYY");
+
       currentWeather(data);
       forecastWeather(data);
     })
@@ -91,7 +94,7 @@ function forecastWeather(data) {
     var windItem = document.createElement('p');
     var humidityItem = document.createElement('p');
 
-    dateItem.textContent = date;
+    dateItem.textContent = moment(date, "X").format("M/DD/YYYY");
     iconItem.setAttribute('src', 'http://openweathermap.org/img/w/' + icon + '.png');
     tempItem.textContent = temp;
     windItem.textContent = wind;
