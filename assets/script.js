@@ -16,8 +16,7 @@ function init() {
 
 function getLocation(city) {
     cityTitle.textContent = city;
-    // Note to self: how to find weather in city with spaces in it (Washington DC, Las Vegas, etc)
-    var newCity = city.replace(/ /g, "");
+    var newCity = city.replace(/ /g, "+");
     fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + newCity + '&limit=1&appid=062ac5aed23ac309d8aa8d7807a42e70')
     .then(function(response) {
       return response.json();
@@ -31,7 +30,7 @@ function getLocation(city) {
 }
 
 function getWeather(lat, lon) {
-    fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely,daily,hourly,alerts&units=imperial&appid=062ac5aed23ac309d8aa8d7807a42e70')
+    fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely,hourly,alerts&units=imperial&appid=062ac5aed23ac309d8aa8d7807a42e70')
     .then(function(response) {
       return response.json();
     })
