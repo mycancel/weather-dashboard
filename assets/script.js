@@ -37,7 +37,6 @@ function getWeather(city, lat, lon) {
       console.log(data);
 
       var weatherIcon = data.current.weather[0].icon;
-      // TODO: Remember to display icon
       var weatherData = [
         'Temp: ' + data.current.temp + "°F",
         'Wind: ' + data.current.wind_speed + ' mph',
@@ -46,6 +45,10 @@ function getWeather(city, lat, lon) {
       var uvIndex = data.current.uvi;
 
       cityTitle.textContent = city;
+      var currentIcon = document.createElement('img');
+      currentIcon.setAttribute('src', 'http://openweathermap.org/img/w/' + weatherIcon + '.png');
+      weatherEl.appendChild(currentIcon);
+
       for (var item of weatherData ) {
         var weatherItem = document.createElement('p');
         weatherItem.textContent = item;
