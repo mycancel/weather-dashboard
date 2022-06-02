@@ -4,6 +4,14 @@ var historyEl = document.querySelector('.history');
 
 var srcHistory = JSON.parse(localStorage.getItem('srcHistory')) || [];
 
+function init() {
+    for (var search of srcHistory){
+        var historyBtn = document.createElement('button');
+        historyBtn.textContent = search;
+        historyEl.appendChild(historyBtn);
+    }
+}
+
 submitBtn.addEventListener('click', function(event){
     event.preventDefault();
     
@@ -18,3 +26,5 @@ submitBtn.addEventListener('click', function(event){
 
     inputEl.value = '';
 })
+
+init();
