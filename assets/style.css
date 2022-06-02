@@ -1,0 +1,25 @@
+:root {
+    --light: #fff;
+    --grey: #d9d9d9;
+    --blue: #284B63;
+    --teal: #3C6E71;
+    --dark: #353535;
+    --heading: 'Raleway', sans-serif;
+    --paragraph: 'Merriweather', serif;
+}
+
+body {
+    margin: 0;
+    padding: 16px;
+    background-color: var(--light);
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: var(--heading);
+}
+
+p, label, input {
+    font-family: var(--paragraph);
+    color: var(--dark);
+}
