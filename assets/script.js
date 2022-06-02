@@ -8,6 +8,9 @@ submitBtn.addEventListener('click', function(event){
     event.preventDefault();
     
     var cityInput = inputEl.value; 
+    var historyBtn = document.createElement('button');
+    historyBtn.textContent = cityInput;
+    historyEl.appendChild(historyBtn);
 
     var srcHistory = JSON.parse(localStorage.getItem('srcHistory')) || [];
     srcHistory.push(cityInput);
