@@ -1,8 +1,9 @@
 var inputEl = document.querySelector('#place');
 var submitBtn = document.querySelector('#submit');
 var historyEl = document.querySelector('#history');
-var weatherEl = document.querySelector('#weather');
 var cityTitle = document.querySelector('#city');
+var weatherEl = document.querySelector('#weather');
+var forecastEl = document.querySelector('#forecast');
 
 var srcHistory = JSON.parse(localStorage.getItem('srcHistory')) || [];
 
@@ -38,6 +39,7 @@ function getWeather(city, lat, lon) {
       cityTitle.textContent = '';
       cityTitle.textContent = city;
       currentWeather(data);
+      forecastWeather(data);
     })
     .catch(function (err) {
       console.log(err);
@@ -66,10 +68,43 @@ function currentWeather(data) {
   }
 
   var uvLabel = document.createElement('p');
-  var uvEl = document.createElement('button');
+  var uvItem = document.createElement('button');
   uvLabel.textContent = 'UV index: ';
-  uvEl.textContent = uvIndex;
-  weatherEl.append(uvLabel, uvEl);
+  uvItem.textContent = uvIndex;
+  weatherEl.append(uvLabel, uvItem);
+}
+
+function forecastWeather(data) {
+  forecastEl.innerHTML = '';
+
+  for (var i = 1; i <= 5; i++) {
+    var date = data.daily[i].dt;
+    var icon = data.daily[i].weather[0].icon;
+    var temp = 'Temp: ' + data.daily[i].temp.day + '°F';
+    var wind = 'Wind: ' + data.daily[i].wind_speed + ' mph';
+    var humidity = 'Humidity: ' + data.daily[i].humidity + '%';
+
+    var forecastCard = document.createElement('article');
+    var dateItem = document.createElement('h3');
+    var iconItem = document.createElement('img');
+    var tempItem = document.createElement('p');
+    var windItem = document.createElement('p');
+    var humidityItem = document.createElement('p');
+
+    dateItem.textContent = date;
+    iconItem.setAttribute('src', 'http://openweathermap.org/img/w/' + icon + '.png');
+    tempItem.textContent = temp;
+    windItem.textContent = wind;
+    humidityItem.textContent = humidity;
+
+    forecastCard.appendChild(dateItem);
+    forecastCard.appendChild(iconItem);
+    forecastCard.appendChild(tempItem);
+    forecastCard.appendChild(windItem);
+    forecastCard.appendChild(humidityItem);
+
+    forecastEl.appendChild(forecastCard);
+  }
 }
 
 
