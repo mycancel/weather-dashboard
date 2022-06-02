@@ -10,13 +10,25 @@
 
 body {
     margin: 0;
-    padding: 16px;
     background-color: var(--light);
 }
 
 h1, h2, h3,
 h4, h5, h6 {
     font-family: var(--heading);
+}
+
+header {
+    color: var(--light);
+    font-size: 40px;
+    text-align: left;
+    padding: 24px;
+    background: linear-gradient(var(--teal), var(--blue));
+}
+
+h1::after {
+    content: '\1F322';
+    margin-left: 12px;
 }
 
 p, label, input {
