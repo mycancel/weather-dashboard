@@ -23,7 +23,7 @@ function getLocation(city) {
   var newCity = city.replace(/ /g, "+");
   // Fetches geocode data via Open Weather Map
   // Reference: https://openweathermap.org/api/geocoding-api
-  fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + newCity + '&limit=1&appid=062ac5aed23ac309d8aa8d7807a42e70')
+  fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + newCity + '&limit=1&appid=062ac5aed23ac309d8aa8d7807a42e70')
     .then(function (response) {
       return response.json();
     })
