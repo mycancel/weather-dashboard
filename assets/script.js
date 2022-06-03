@@ -70,6 +70,19 @@ function currentWeather(data) {
 
   var uvLabel = document.createElement('p');
   var uvItem = document.createElement('button');
+
+  if (uvIndex < 3) {
+    uvItem.classList.add('favorable');
+    uvItem.disabled = true;
+  } else if (uvIndex < 6) {
+    uvItem.classList.add('moderate');
+    uvItem.disabled = true;
+  } else {
+    uvItem.classList.add('severe');
+    uvItem.disabled = true;
+  }
+
+
   uvLabel.textContent = 'UV index: ';
   uvItem.textContent = uvIndex;
   weatherEl.append(uvLabel, uvItem);

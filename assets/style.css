@@ -31,9 +31,9 @@ header {
     background: linear-gradient(var(--teal), var(--blue));
 }
 
-h1::after {
+h1::before {
     content: '\1F322';
-    margin-left: 12px;
+    margin-right: 12px;
 }
 
 aside {
@@ -132,4 +132,31 @@ h2 {
 #forecast article h3 {
     color: var(--light);
     font-size: 20px;
+}
+
+.favorable {
+    border: none;
+    background-color: green;
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--light);
+    padding: 6px 12px;
+}
+
+.moderate {
+    border: none;
+    background-color: orange;
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--light);
+    padding: 6px 12px;
+}
+
+.severe {
+    border: none;
+    background-color: red;
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--light);
+    padding: 6px 12px;
 }
