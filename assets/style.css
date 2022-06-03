@@ -88,6 +88,23 @@ form label {
     border: none;
     width: 75%;
     margin-top: 16px;
+    background-color: var(--teal);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--light);
+    padding: 6px 12px;
+}
+
+#history {
+    margin: 16px;
+    text-align: center;
+}
+
+#history button{
+    cursor: pointer;
+    border: none;
+    width: 75%;
+    margin-top: 16px;
     background-color: var(--blue);
     border-radius: 8px;
     font-size: 16px;
