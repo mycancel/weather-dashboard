@@ -71,6 +71,8 @@ function currentWeather(data) {
   var uvLabel = document.createElement('p');
   var uvItem = document.createElement('button');
 
+  uvLabel.style.display ='inline';
+  
   if (uvIndex < 3) {
     uvItem.classList.add('favorable');
     uvItem.disabled = true;

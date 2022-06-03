@@ -109,13 +109,32 @@ form label {
 }
 
 div section {
-    /* display: inline-block; */
     margin: 16px;
 }
 
 h2 {
     font-size: 24px;
     margin-top: 8px;
+}
+
+#weather button {
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--light);
+    padding: 6px 12px;
+}
+
+.favorable {
+    background-color: green;
+}
+
+.moderate {
+    background-color: orange;
+}
+
+.severe {
+    background-color: red; 
 }
 
 #forecast article {
@@ -132,31 +151,4 @@ h2 {
 #forecast article h3 {
     color: var(--light);
     font-size: 20px;
-}
-
-.favorable {
-    border: none;
-    background-color: green;
-    border-radius: 8px;
-    font-size: 16px;
-    color: var(--light);
-    padding: 6px 12px;
-}
-
-.moderate {
-    border: none;
-    background-color: orange;
-    border-radius: 8px;
-    font-size: 16px;
-    color: var(--light);
-    padding: 6px 12px;
-}
-
-.severe {
-    border: none;
-    background-color: red;
-    border-radius: 8px;
-    font-size: 16px;
-    color: var(--light);
-    padding: 6px 12px;
 }
