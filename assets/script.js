@@ -73,6 +73,9 @@ function currentWeather(data) {
   uvLabel.textContent = 'UV index: ';
   uvItem.textContent = uvIndex;
   weatherEl.append(uvLabel, uvItem);
+
+  var divider = document.createElement('hr');
+  weatherEl.appendChild(divider);
 }
 
 function forecastWeather(data) {
