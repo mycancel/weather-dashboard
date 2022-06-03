@@ -13,8 +13,12 @@ body {
     background-color: var(--light);
 }
 
-h1, h2, h3,
-h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--heading);
 }
 
@@ -31,7 +35,9 @@ h1::after {
     margin-left: 12px;
 }
 
-p, label, input {
+p,
+label,
+input {
     font-family: var(--paragraph);
     color: var(--dark);
 }
@@ -58,11 +64,12 @@ form label {
     -moz-appearance: none;
     appearance: none;
     border: none;
+    width: 100%;
     border-bottom: 2px dashed var(--grey);
     padding-left: 8px;
     padding-right: 8px;
     margin-right: 16px;
-  }
+}
 
 #place:focus {
     -webkit-appearance: none;
@@ -79,9 +86,11 @@ form label {
 #submit {
     cursor: pointer;
     border: none;
+    width: 75%;
+    margin-top: 16px;
     background-color: var(--blue);
     border-radius: 8px;
     font-size: 16px;
     color: var(--light);
-    padding: 5px 12px;
-  }
+    padding: 6px 12px;
+}
