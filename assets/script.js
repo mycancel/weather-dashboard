@@ -3,6 +3,7 @@ var submitBtn = document.querySelector('#submit');
 var historyEl = document.querySelector('#history');
 var cityTitle = document.querySelector('#city');
 var weatherEl = document.querySelector('#weather');
+var forecastTitle = document.querySelector('#forecast-title');
 var forecastEl = document.querySelector('#forecast');
 
 var srcHistory = JSON.parse(localStorage.getItem('srcHistory')) || [];
@@ -76,6 +77,8 @@ function currentWeather(data) {
 
 function forecastWeather(data) {
   forecastEl.innerHTML = '';
+  forecastTitle.textContent = '';
+  forecastTitle.textContent = 'Five Day Forecast';
 
   for (var i = 1; i <= 5; i++) {
     var date = data.daily[i].dt;
